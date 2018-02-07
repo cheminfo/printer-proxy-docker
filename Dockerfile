@@ -1,6 +1,6 @@
 FROM node:7-alpine
 
-ENV VERSION 1.0.0
+ENV VERSION 1.0.1
 
 RUN apk add --no-cache curl && \
     curl -fSL https://github.com/cheminfo/stock-printer-proxy/archive/v$VERSION.tar.gz -o $VERSION.tar.gz && \
