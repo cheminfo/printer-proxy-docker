@@ -1,9 +1,11 @@
 FROM node:7-alpine
 
-ENV VERSION 1.0.1
+ENV VERSION 94b52fc93fd5ea07279617075a6b614b8caf8a7a
 
-RUN apk add --no-cache curl && \
-    curl -fSL https://github.com/cheminfo/stock-printer-proxy/archive/v$VERSION.tar.gz -o $VERSION.tar.gz && \
+RUN vVERSION=$(echo $VERSION | sed s/^[0-9]\.+\[0-9]+\.[0-9]+/v\\0/g) && \
+    apk add --no-cache curl && \
+    echo https://github.com/cheminfo/stock-printer-proxy/archive/$vVERSION.tar.gz && \
+    curl -fSL https://github.com/cheminfo/stock-printer-proxy/archive/$vVERSION.tar.gz -o $VERSION.tar.gz && \
     tar -xzf $VERSION.tar.gz && \
     mv stock-printer-proxy-${VERSION} stock-printer-proxy-source && \
     npm i -g pm2 && \
