@@ -2,7 +2,7 @@ FROM node:7-alpine
 
 ENV VERSION 1.1.0
 
-RUN vVERSION=$(echo $VERSION | sed s/^[0-9]\.+\[0-9]+\.[0-9]+/v\\0/g) && \
+RUN vVERSION=$(echo $VERSION | sed -E s/^[0-9]\.+\[0-9]+\.[0-9]+/v\\0/g) && \
     apk add --no-cache curl && \
     echo https://github.com/cheminfo/stock-printer-proxy/archive/$vVERSION.tar.gz && \
     curl -fSL https://github.com/cheminfo/stock-printer-proxy/archive/$vVERSION.tar.gz -o $VERSION.tar.gz && \
