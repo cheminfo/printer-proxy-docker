@@ -1,4 +1,4 @@
-FROM node:7-alpine
+FROM node:10-alpine
 
 ENV VERSION 1.2.1
 
