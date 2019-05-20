@@ -1,6 +1,6 @@
 FROM node:7-alpine
 
-ENV VERSION 1.2.0
+ENV VERSION 1.2.1
 
 RUN vVERSION=$(echo $VERSION | sed -E s/^[0-9]\\.+\[0-9]+\\.[0-9]+/v\\0/g) && \
     apk add --no-cache curl && \
