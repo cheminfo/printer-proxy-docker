@@ -1,6 +1,6 @@
-FROM node:10-alpine
+FROM node:12-alpine
 
-ENV VERSION 1.3.3
+ENV VERSION 1.3.4
 
 RUN vVERSION=$(echo $VERSION | sed -E s/^[0-9]\\.+\[0-9]+\\.[0-9]+/v\\0/g) && \
     apk add --no-cache curl && \
